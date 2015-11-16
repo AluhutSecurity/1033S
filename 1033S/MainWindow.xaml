@@ -1,0 +1,71 @@
+﻿<Window x:Class="_1033S.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_1033S"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+        <Storyboard x:Key="ExpandSubMenus">
+            <DoubleAnimation
+                Duration="0:0:0.25"
+                Storyboard.TargetName="ServerSubMenu"
+                Storyboard.TargetProperty="Height"
+                From="{Binding Source=ServerSubMenu, Path=Height}"
+                To="34"
+                />
+            <DoubleAnimation
+                Duration="0:0:0.25"
+                Storyboard.TargetName="PackageSubMenu"
+                Storyboard.TargetProperty="Height"
+                From="{Binding Source=PackageSubMenu, Path=Height}"
+                To="34"
+                />
+        </Storyboard>
+        <Storyboard x:Key="ContractSubMenus">
+            <DoubleAnimation
+                Duration="0:0:0.25"
+                Storyboard.TargetName="ServerSubMenu"
+                Storyboard.TargetProperty="Height"
+                From="{Binding Source=ServerSubMenu, Path=Height}"
+                To="0"
+                />
+            <DoubleAnimation
+                Duration="0:0:0.25"
+                Storyboard.TargetName="PackageSubMenu"
+                Storyboard.TargetProperty="Height"
+                From="{Binding Source=PackageSubMenu, Path=Height}"
+                To="0"
+                />
+        </Storyboard>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" Name="MainMenuRow" />
+            <RowDefinition Height="auto" Name="SubMenuRow" />
+            <RowDefinition Height="auto" Name="ContentRow" />
+        </Grid.RowDefinitions>
+        <!--Menu-->
+        <Menu Width="auto" Grid.Row="0" VerticalAlignment="Top" VerticalContentAlignment="Top" Name="MainMenu" Background="#448ccb" IsMainMenu="True" >
+            <MenuItem Padding="10" Header="Server" Foreground="AliceBlue" FontSize="14" Name="MenuItem_Server" Click="MenuItem_Server_Click" />
+            <MenuItem Padding="10" Header="Packages" Foreground="AliceBlue" FontSize="14" Name="MenuItem_Packages" Click="MenuItem_Packages_Click" />
+            <MenuItem Header="Drone #1241" Padding="10" Foreground="White" FontSize="12" />
+            <MenuItem Header="Drone #1493" Padding="10" Foreground="White" FontSize="12" />
+        </Menu>
+
+        <Menu Width="{Binding Source=MainMenu, Path=Width}" Height="0" Grid.Row="1" VerticalAlignment="Top" Background="#003471" IsMainMenu="False" x:Name="ServerSubMenu">
+            <MenuItem Header="Drone" Padding="20 8" Foreground="White" FontSize="12" Name="ServerSubMenuItem_Drone" Click="ServerSubMenuItem_Drone_Click" />
+            <MenuItem Header="SQL" Padding="20 8" Foreground="White" FontSize="12" Name="ServerSubMenuItem_SQL" Click="ServerSubMenuItem_SQL_Click" />
+            <MenuItem Header="Location" Padding="20 8" Foreground="White" FontSize="12" Name="ServerSubMenuItem_Location" Click="ServerSubMenuItem_Location_Click" />
+        </Menu>
+
+        <Menu Width="{Binding Source=MainMenu, Path=Width}" Height="0" Grid.Row="1" VerticalAlignment="Top" Background="#003471" IsMainMenu="False" x:Name="PackageSubMenu">
+            <MenuItem Header="Registrieren" Padding="20 8" Foreground="White" FontSize="12" Name="PackageSubMenuItem_Register" Click="PackageSubMenuItem_Register_Click" />
+            <MenuItem Header="Versandbereit" Padding="20 8" Foreground="White" FontSize="12" Name="PackageSubMenuItem_Ready" Click="PackageSubMenuItem_Ready_Click"/>
+            <MenuItem Header="Unterwegs" Padding="20 8" Foreground="White" FontSize="12" Name="PackageSubMenuItem_Delivery" Click="PackageSubMenuItem_Delivery_Click"/>
+            <MenuItem Header="Abgeschlossen" Padding="20 8" Foreground="White" FontSize="12" Name="PackageSubMenuItem_Closed" Click="PackageSubMenuItem_Closed_Click"/>
+        </Menu>
+
+    </Grid>
+</Window>

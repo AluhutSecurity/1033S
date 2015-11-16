@@ -41,7 +41,7 @@ namespace _1033S {
         void InitAnimation( SubMenu currentMenu, SubMenu requestedMenu ) {
             DoubleAnimation animation;
 
-            if ( requestedMenu == currentMenu ) return;
+            if ( requestedMenu == currentMenu ) requestedMenu = SubMenu.None;
 
             switch(requestedMenu) {
                 case SubMenu.Server:
@@ -86,31 +86,38 @@ namespace _1033S {
         #region SubMenu_Server
         private void ServerSubMenuItem_Drone_Click( object sender, RoutedEventArgs e ) {
             InitAnimation( this.visibleMenu, SubMenu.None );
+            this.Title = "1033S Server\\Drohnen";
         }
 
         private void ServerSubMenuItem_SQL_Click( object sender, RoutedEventArgs e ) {
             InitAnimation( this.visibleMenu, SubMenu.None );
+            this.Title = "1033S Server\\SQL";
         }
 
         private void ServerSubMenuItem_Location_Click( object sender, RoutedEventArgs e ) {
             InitAnimation( this.visibleMenu, SubMenu.None );
+            this.Title = "1033S Server\\Location";
         }
         #endregion
         #region SubMenu_Package
         private void PackageSubMenuItem_Register_Click( object sender, RoutedEventArgs e ) {
             InitAnimation( this.visibleMenu, SubMenu.None );
+            this.Title = "1033S Pakete\\Registrieren";
         }
 
         private void PackageSubMenuItem_Ready_Click( object sender, RoutedEventArgs e ) {
             InitAnimation( this.visibleMenu, SubMenu.None );
+            this.Title = "1033S Pakete\\Versandbereit";
         }
 
         private void PackageSubMenuItem_Delivery_Click( object sender, RoutedEventArgs e ) {
             InitAnimation( this.visibleMenu, SubMenu.None );
+            this.Title = "1033S Pakete\\Unterwegs";
         }
 
         private void PackageSubMenuItem_Closed_Click( object sender, RoutedEventArgs e ) {
             InitAnimation( this.visibleMenu, SubMenu.None );
+            this.Title = "1033S Pakete\\Abgeschlossen";
         }
         #endregion
         #endregion
@@ -123,4 +130,5 @@ namespace _1033S {
         Server,
         Packages
     }
+    
 }

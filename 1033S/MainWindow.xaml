@@ -46,16 +46,17 @@
             <RowDefinition Height="auto" Name="SubMenuRow" />
             <RowDefinition Height="auto" Name="ContentRow" />
         </Grid.RowDefinitions>
+        
         <!--Menu-->
         <Menu Width="auto" Grid.Row="0" VerticalAlignment="Top" VerticalContentAlignment="Top" Name="MainMenu" Background="#448ccb" IsMainMenu="True" >
             <MenuItem Padding="10" Header="Server" Foreground="AliceBlue" FontSize="14" Name="MenuItem_Server" Click="MenuItem_Server_Click" />
-            <MenuItem Padding="10" Header="Packages" Foreground="AliceBlue" FontSize="14" Name="MenuItem_Packages" Click="MenuItem_Packages_Click" />
-            <MenuItem Header="Drone #1241" Padding="10" Foreground="White" FontSize="12" />
-            <MenuItem Header="Drone #1493" Padding="10" Foreground="White" FontSize="12" />
+            <MenuItem Padding="10" Header="Paket" Foreground="AliceBlue" FontSize="14" Name="MenuItem_Packages" Click="MenuItem_Packages_Click" />
+            <MenuItem Header="Drohne #1241" Padding="10" Foreground="White" FontSize="12" />
+            <MenuItem Header="Drohne #1493" Padding="10" Foreground="White" FontSize="12" />
         </Menu>
 
         <Menu Width="{Binding Source=MainMenu, Path=Width}" Height="0" Grid.Row="1" VerticalAlignment="Top" Background="#003471" IsMainMenu="False" x:Name="ServerSubMenu">
-            <MenuItem Header="Drone" Padding="20 8" Foreground="White" FontSize="12" Name="ServerSubMenuItem_Drone" Click="ServerSubMenuItem_Drone_Click" />
+            <MenuItem Header="Drohne" Padding="20 8" Foreground="White" FontSize="12" Name="ServerSubMenuItem_Drone" Click="ServerSubMenuItem_Drone_Click" />
             <MenuItem Header="SQL" Padding="20 8" Foreground="White" FontSize="12" Name="ServerSubMenuItem_SQL" Click="ServerSubMenuItem_SQL_Click" />
             <MenuItem Header="Location" Padding="20 8" Foreground="White" FontSize="12" Name="ServerSubMenuItem_Location" Click="ServerSubMenuItem_Location_Click" />
         </Menu>

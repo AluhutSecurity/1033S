@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_1033S"
         mc:Ignorable="d"
-        Title="1033S" Height="350" Width="525">
+        Title="1033S" Height="427" Width="819.3">
     <Window.Resources>
         <Storyboard x:Key="ExpandSubMenus">
             <DoubleAnimation
@@ -42,6 +42,7 @@
         <BitmapImage x:Key="MenuBarIcon_Server" UriSource="img\server.png" />
         <BitmapImage x:Key="MenuBarIcon_Package" UriSource="img\package.png" />
         <BitmapImage x:Key="MenuBarIcon_Cctv" UriSource="img\cctv.png" />
+        <BitmapImage x:Key="MenuBarIcon_Drone" UriSource="img\drone.png" />
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -49,35 +50,41 @@
             <RowDefinition Height="auto" Name="SubMenuRow" />
             <RowDefinition Height="auto" Name="ContentRow" />
         </Grid.RowDefinitions>
-        
+
         <!--Menu-->
         <Menu Width="auto" Grid.Row="0" VerticalAlignment="Top" VerticalContentAlignment="Top" Name="MainMenu" Background="#448ccb" IsMainMenu="True" >
             <MenuItem Padding="10" Background="#448ccb" Foreground="AliceBlue" FontSize="14" Name="MenuItem_Server" Click="MenuItem_Server_Click">
                 <MenuItem.Header>
                     <StackPanel Orientation="Horizontal">
                         <Image Source="{StaticResource MenuBarIcon_Server}" Margin="0 0 10 0"></Image>
-                        <TextBlock Text="Server" />                   
+                        <TextBlock Text="Server" />
                     </StackPanel>
                 </MenuItem.Header>
             </MenuItem>
             <MenuItem Padding="10" Background="#448ccb" Foreground="AliceBlue" FontSize="14" Name="MenuItem_Packages" Click="MenuItem_Packages_Click">
-            <MenuItem.Header>
+                <MenuItem.Header>
                     <StackPanel Orientation="Horizontal">
                         <Image Source="{StaticResource MenuBarIcon_Package}" Margin="0 0 10 0"></Image>
                         <TextBlock Text="Pakete" />
-                </StackPanel>
-            </MenuItem.Header>
+                    </StackPanel>
+                </MenuItem.Header>
             </MenuItem>
             <MenuItem Padding="10" Background="#448ccb" Foreground="AliceBlue" FontSize="14" Name="MenuItem_PickupCam" Click="MenuItem_PickupCam_Click">
-            <MenuItem.Header>
+                <MenuItem.Header>
                     <StackPanel Orientation="Horizontal">
                         <Image Source="{StaticResource MenuBarIcon_Cctv}" Margin="0 0 10 0"></Image>
                         <TextBlock Text="PickupCam" />
-                </StackPanel>
-            </MenuItem.Header>
+                    </StackPanel>
+                </MenuItem.Header>
             </MenuItem>
-            <MenuItem Header="Drohne #1241" Padding="10" Foreground="White" FontSize="12" />
-            <MenuItem Header="Drohne #1493" Padding="10" Foreground="White" FontSize="12" />
+            <!--<MenuItem Padding="10" Foreground="White" FontSize="12">
+                <MenuItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="{StaticResource MenuBarIcon_Drone}" Margin="0 0 10 0"></Image>
+                        <TextBlock Text="Drohne #1241" />
+                    </StackPanel>
+                </MenuItem.Header>
+            </MenuItem>-->
         </Menu>
 
         <Menu Width="{Binding Source=MainMenu, Path=Width}" Height="0" Grid.Row="1" VerticalAlignment="Top" Background="#003471" IsMainMenu="False" x:Name="ServerSubMenu">
@@ -93,5 +100,41 @@
             <MenuItem Header="Abgeschlossen" Padding="20 8" Foreground="White" FontSize="12" Name="PackageSubMenuItem_Closed" Click="PackageSubMenuItem_Closed_Click"/>
         </Menu>
 
+        <Grid Grid.RowSpan="2" Grid.Row="1" Name="DroneInformationPanel" HorizontalAlignment="Left" Width="200" Height="auto" Background="LightGray" Panel.ZIndex="10" Visibility="Collapsed" >
+            <StackPanel>
+                <TextBlock Text="Status" Margin="10 5 0 2" TextBlock.FontWeight="Bold" />
+                <TextBlock Text="{Binding State}" Margin="20 0 0 0" Name="DroneStatus" />
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Aktualisiert" Width="60" Margin="20 0" />
+                    <TextBlock Text="{Binding LastUpdate, StringFormat=T}" />
+                </StackPanel>
+                <TextBlock Text="Position" Margin="10 5 0 2" TextBlock.FontWeight="Bold" />
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Latitude" Width="60" Margin="20 0" />
+                    <TextBlock Text="{Binding Position.Latitude}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Longitude" Width="60" Margin="20 0"/>
+                    <TextBlock Text="{Binding Position.Longitude}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Höhe" Width="60" Margin="20 0" />
+                    <TextBlock Text="{Binding Position.Altitude}" />
+                </StackPanel>
+                <TextBlock Text="Paket" Margin="10 5 0 2" TextBlock.FontWeight="Bold" />
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="ID" Width="60" Margin="20 0" />
+                    <TextBlock Text="{Binding Package.UID}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Empfänger" Width="60" Margin="20 0" />
+                    <TextBlock Text="{Binding Package.Recipient.Name}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Gewicht" Width="60" Margin="20 0 20 10" />
+                    <TextBlock Text="{Binding Package.Weight}" />
+                </StackPanel>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>

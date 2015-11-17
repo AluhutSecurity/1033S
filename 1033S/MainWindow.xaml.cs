@@ -82,6 +82,11 @@ namespace _1033S {
         private void MenuItem_Packages_Click( object sender, RoutedEventArgs e ) {
             InitAnimation( this.visibleMenu, SubMenu.Packages );
         }
+        private void MenuItem_PickupCam_Click( object sender, RoutedEventArgs e ) {
+            this.InitAnimation( this.visibleMenu, SubMenu.None );
+            this.Title = "1033S PickupCam";
+        }
+
 
         ///<summary>
         /// used to add menuitems to the main menu bar
@@ -127,7 +132,7 @@ namespace _1033S {
             InitAnimation( this.visibleMenu, SubMenu.None );
             this.Title = "1033S Pakete\\Unterwegs";
         }
-
+        
         private void PackageSubMenuItem_Closed_Click( object sender, RoutedEventArgs e ) {
             InitAnimation( this.visibleMenu, SubMenu.None );
             this.Title = "1033S Pakete\\Abgeschlossen";

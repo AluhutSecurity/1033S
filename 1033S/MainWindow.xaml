@@ -39,6 +39,9 @@
                 To="0"
                 />
         </Storyboard>
+        <BitmapImage x:Key="MenuBarIcon_Server" UriSource="img\server.png" />
+        <BitmapImage x:Key="MenuBarIcon_Package" UriSource="img\package.png" />
+        <BitmapImage x:Key="MenuBarIcon_Cctv" UriSource="img\cctv.png" />
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -49,8 +52,30 @@
         
         <!--Menu-->
         <Menu Width="auto" Grid.Row="0" VerticalAlignment="Top" VerticalContentAlignment="Top" Name="MainMenu" Background="#448ccb" IsMainMenu="True" >
-            <MenuItem Padding="10" Header="Server" Foreground="AliceBlue" FontSize="14" Name="MenuItem_Server" Click="MenuItem_Server_Click" />
-            <MenuItem Padding="10" Header="Paket" Foreground="AliceBlue" FontSize="14" Name="MenuItem_Packages" Click="MenuItem_Packages_Click" />
+            <MenuItem Padding="10" Background="#448ccb" Foreground="AliceBlue" FontSize="14" Name="MenuItem_Server" Click="MenuItem_Server_Click">
+                <MenuItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="{StaticResource MenuBarIcon_Server}" Margin="0 0 10 0"></Image>
+                        <TextBlock Text="Server" />                   
+                    </StackPanel>
+                </MenuItem.Header>
+            </MenuItem>
+            <MenuItem Padding="10" Background="#448ccb" Foreground="AliceBlue" FontSize="14" Name="MenuItem_Packages" Click="MenuItem_Packages_Click">
+            <MenuItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="{StaticResource MenuBarIcon_Package}" Margin="0 0 10 0"></Image>
+                        <TextBlock Text="Pakete" />
+                </StackPanel>
+            </MenuItem.Header>
+            </MenuItem>
+            <MenuItem Padding="10" Background="#448ccb" Foreground="AliceBlue" FontSize="14" Name="MenuItem_PickupCam" Click="MenuItem_PickupCam_Click">
+            <MenuItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="{StaticResource MenuBarIcon_Cctv}" Margin="0 0 10 0"></Image>
+                        <TextBlock Text="PickupCam" />
+                </StackPanel>
+            </MenuItem.Header>
+            </MenuItem>
             <MenuItem Header="Drohne #1241" Padding="10" Foreground="White" FontSize="12" />
             <MenuItem Header="Drohne #1493" Padding="10" Foreground="White" FontSize="12" />
         </Menu>

@@ -82,6 +82,19 @@ namespace _1033S {
         private void MenuItem_Packages_Click( object sender, RoutedEventArgs e ) {
             InitAnimation( this.visibleMenu, SubMenu.Packages );
         }
+
+        ///<summary>
+        /// used to add menuitems to the main menu bar
+        /// </summary>
+        /// <TODO>
+        /// maybe other yet unknown items (notifications?) as well 
+        /// => should solve with some interface
+        /// IMenuItem or sth.
+        /// </TODO>
+        private void MenuItem_AddMenuItem() {
+            throw new NotImplementedException();
+        }
+
         #endregion
         #region SubMenu_Server
         private void ServerSubMenuItem_Drone_Click( object sender, RoutedEventArgs e ) {

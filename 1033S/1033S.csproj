@@ -61,6 +61,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -92,8 +93,64 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\PDroneServer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PLocationServer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PPackageActive.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PPackageCompleted.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PPackageReady.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PPackageRegistration.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PPickupCam.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PSqlServer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pages\PDroneServer.xaml.cs">
+      <DependentUpon>PDroneServer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PLocationServer.xaml.cs">
+      <DependentUpon>PLocationServer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PPackageActive.xaml.cs">
+      <DependentUpon>PPackageActive.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PPackageCompleted.xaml.cs">
+      <DependentUpon>PPackageCompleted.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PPackageReady.xaml.cs">
+      <DependentUpon>PPackageReady.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PPackageRegistration.xaml.cs">
+      <DependentUpon>PPackageRegistration.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PPickupCam.xaml.cs">
+      <DependentUpon>PPickupCam.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PSqlServer.xaml.cs">
+      <DependentUpon>PSqlServer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

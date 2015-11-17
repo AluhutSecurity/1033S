@@ -164,6 +164,7 @@ namespace _1033S {
         private void ServerSubMenuItem_Drone_Click( object sender, RoutedEventArgs e ) {
             InitAnimation( this.visibleMenu, SubMenu.None );
             this.Title = "1033S Server\\Drohnen";
+            this.ContentSpace.Content = new PDroneServer();
         }
 
         private void ServerSubMenuItem_SQL_Click( object sender, RoutedEventArgs e ) {

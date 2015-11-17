@@ -48,7 +48,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="40" Name="MainMenuRow" />
             <RowDefinition Height="auto" Name="SubMenuRow" />
-            <RowDefinition Height="auto" Name="ContentRow" />
+            <RowDefinition Height="*" Name="ContentRow" />
         </Grid.RowDefinitions>
 
         <!--Menu-->
@@ -100,6 +100,8 @@
             <MenuItem Header="Abgeschlossen" Padding="20 8" Foreground="White" FontSize="12" Name="PackageSubMenuItem_Closed" Click="PackageSubMenuItem_Closed_Click"/>
         </Menu>
 
+        <ContentControl Grid.Row="2" Name="ContentSpace" />
+        
         <Grid Grid.RowSpan="2" Grid.Row="1" Name="DroneInformationPanel" HorizontalAlignment="Left" Width="200" Height="auto" Background="LightGray" Panel.ZIndex="10" Visibility="Collapsed" >
             <StackPanel>
                 <TextBlock Text="Status" Margin="10 5 0 2" TextBlock.FontWeight="Bold" />
@@ -111,15 +113,15 @@
                 <TextBlock Text="Position" Margin="10 5 0 2" TextBlock.FontWeight="Bold" />
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Latitude" Width="60" Margin="20 0" />
-                    <TextBlock Text="{Binding Position.Latitude}" />
+                    <TextBlock Text="{Binding Path=Position.Latitude, StringFormat=F4}" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Longitude" Width="60" Margin="20 0"/>
-                    <TextBlock Text="{Binding Position.Longitude}" />
+                    <TextBlock Text="{Binding Position.Longitude, StringFormat=F4}" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Höhe" Width="60" Margin="20 0" />
-                    <TextBlock Text="{Binding Position.Altitude}" />
+                    <TextBlock Text="{Binding Position.Altitude, StringFormat=F4}" />
                 </StackPanel>
                 <TextBlock Text="Paket" Margin="10 5 0 2" TextBlock.FontWeight="Bold" />
                 <StackPanel Orientation="Horizontal">
@@ -132,7 +134,7 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Gewicht" Width="60" Margin="20 0 20 10" />
-                    <TextBlock Text="{Binding Package.Weight}" />
+                    <TextBlock Text="{Binding Package.Weight, StringFormat={}{F3}:g}" />
                 </StackPanel>
             </StackPanel>
         </Grid>

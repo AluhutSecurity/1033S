@@ -6,7 +6,20 @@
              xmlns:local="clr-namespace:_1033S.Pages"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
+    <Grid Background="White">
+        <StackPanel Name="DroneServerStackPanel">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Port" Margin="10 5" Width="60"></TextBlock>
+                <TextBox Width="100" Height="20" Text="{Binding Path=Port, Mode=TwoWay}" Margin="10 5"/>            
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="LocalIP" Margin="10 5" Width="60"/>
+                <TextBox Width="100" Height="20" Text="{Binding Port, Mode=TwoWay}" Margin="10 5"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button Width="100" Height="25" Content="Start" Margin="90 5" Name="DroneServer_StartStopButton" Click="DroneServer_StartStopButton_Click"/>
+            </StackPanel>
             
+        </StackPanel>
     </Grid>
 </UserControl>

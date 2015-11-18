@@ -23,8 +23,6 @@ namespace _1033S {
         private void Server_Init() {
             this.droneServer = new _1033C.Drones.MyDroneServer();
             this.droneServer.DroneStatusChanged += DroneServer_DroneStatusChanged;
-#pragma warning removethis
-            this.droneServer.Start();
         }
 
         private void DroneServer_DroneStatusChanged( object sender, _1033C.Drones.MyDrone e ) {
@@ -52,8 +50,8 @@ namespace _1033S {
 
         private void MenuBar_Init() {
             this.visibleMenu = SubMenu.None;
-            this.expandMenus = ( Storyboard ) TryFindResource( "ExpandSubMenus" );
-            this.contractMenus = ( Storyboard ) TryFindResource( "ContractSubMenus" );
+            this.expandMenus = ( Storyboard )TryFindResource( "ExpandSubMenus" );
+            this.contractMenus = ( Storyboard )TryFindResource( "ContractSubMenus" );
         }
 
 
@@ -136,7 +134,7 @@ namespace _1033S {
 
         private void MenuItem_RemoveDroneMenuItem( string identifier ) {
             foreach ( MenuItem item in this.MainMenu.Items ) {
-                if ( ( ( TextBlock ) ( ( StackPanel ) item.Header ).Children[1] ).Text == identifier ) {
+                if ( ( ( TextBlock )( ( StackPanel )item.Header ).Children[1] ).Text == identifier ) {
                     this.MainMenu.Items.Remove( item );
                     return;
                 }
@@ -148,8 +146,8 @@ namespace _1033S {
         }
 
         private void NItem_MouseEnter( object sender, System.Windows.Input.MouseEventArgs e ) {
-            MenuItem item = ( MenuItem ) sender;
-            var text = ( ( TextBlock ) ( ( StackPanel ) item.Header ).Children[1] ).Text;
+            MenuItem item = ( MenuItem )sender;
+            var text = ( ( TextBlock )( ( StackPanel )item.Header ).Children[1] ).Text;
             var id = ulong.Parse( text.Split( '#' )[1] );
             this.droneInformation = this.droneServer.GetDroneByUID( id );
 
@@ -164,7 +162,7 @@ namespace _1033S {
         private void ServerSubMenuItem_Drone_Click( object sender, RoutedEventArgs e ) {
             InitAnimation( this.visibleMenu, SubMenu.None );
             this.Title = "1033S Server\\Drohnen";
-            this.ContentSpace.Content = new PDroneServer();
+            this.ContentSpace.Content = new Pages.PDroneServer( this.droneServer );
         }
 
         private void ServerSubMenuItem_SQL_Click( object sender, RoutedEventArgs e ) {

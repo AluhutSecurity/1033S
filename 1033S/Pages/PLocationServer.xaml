@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:_1033S.Pages"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
+    <Grid Background="white">
             
     </Grid>
 </UserControl>

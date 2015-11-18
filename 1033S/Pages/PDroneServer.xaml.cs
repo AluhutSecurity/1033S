@@ -22,7 +22,7 @@ namespace _1033S.Pages {
             InitializeComponent();
             this.ServerParameter = new _1033C.Utils.MyServerParameter( _1033C.Defines.DEFAULT_DRONESERVER_LISTENERIP, _1033C.Defines.DEFAULT_DRONESERVER_LOCALPORT );
             this.Server = server;
-            this.DroneServerStackPanel.DataContext = "ServerParameter";
+            this.DroneServerStackPanel.DataContext = this.ServerParameter;
         }
 
         public _1033C.Utils.MyServerParameter ServerParameter { get; }
@@ -30,6 +30,11 @@ namespace _1033S.Pages {
 
         private void DroneServer_StartStopButton_Click( object sender, RoutedEventArgs e ) {
             if ( ( string )( ( Button )sender ).Content == "Start" ) {
+                if(this.ServerParameter.LocalIP != null ) {
+                    this.Server.LocalEndPoint = this.ServerParameter.LocalIP;
+                }
+                this.Server.Port = this.ServerParameter.Port;
+
                 this.Server.Start();
                 ( ( Button )sender ).Content = "Stop";
             } else {

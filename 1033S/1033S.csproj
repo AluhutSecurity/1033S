@@ -130,12 +130,14 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pages\IPAddressToStringConverter.cs" />
     <Compile Include="Pages\PDroneServer.xaml.cs">
       <DependentUpon>PDroneServer.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\PLocationServer.xaml.cs">
       <DependentUpon>PLocationServer.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\PortValidationRule.cs" />
     <Compile Include="Pages\PPackageActive.xaml.cs">
       <DependentUpon>PPackageActive.xaml</DependentUpon>
     </Compile>
